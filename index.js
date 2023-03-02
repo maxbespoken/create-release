@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 async function main() {
-    const octokit = github.getOctokit('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');
+    const octokit = github.getOctokit('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');
 
     const owner = "bespoken"
     const repo = "iac"

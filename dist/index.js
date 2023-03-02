@@ -9778,7 +9778,7 @@ const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
 
 async function main() {
-    const octokit = github.getOctokit('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');
+    const octokit = github.getOctokit('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');
 
     const owner = "bespoken"
     const repo = "iac"
