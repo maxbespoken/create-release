@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: maxbespoken/create-release@main
+        uses: maxbespoken/create-release@v1.5
         with:
           who-to-greet: 'Mona the Octocat'
           token: ${{ secrets.GITHUB_TOKEN }}
