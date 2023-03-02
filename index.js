@@ -2,9 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 async function main() {
-    const octokit = github.getOctokit({
-        auth: core.getInput('token'),
-    });
+    const octokit = github.getOctokit(core.getInput('token'));
 
     const owner = "bespoken"
     const repo = "iac"

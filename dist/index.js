@@ -9778,9 +9778,7 @@ const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
 
 async function main() {
-    const octokit = github.getOctokit({
-        auth: core.getInput('token'),
-    });
+    const octokit = github.getOctokit(core.getInput('token'));
 
     const owner = "bespoken"
     const repo = "iac"
