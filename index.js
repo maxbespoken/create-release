@@ -1,8 +1,9 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
+const { Octokit } = require("@octokit/action");
 
 async function main() {
-    const octokit = github.getOctokit('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');
+    const octokit = new Octokit({ auth: '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' });
 
     const owner = "bespoken"
     const repo = "iac"
