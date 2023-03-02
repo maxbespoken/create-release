@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 async function main() {
-    const octokit = new Octokit({
+    const octokit = github.getOctokit({
         auth: core.getInput('token'),
     });
 
@@ -12,7 +12,7 @@ async function main() {
     const list = await octokit.rest.repos.listReleases({
         owner, repo
     })
-    
+
     console.log('All', list)
     // `who-to-greet` input defined in action metadata file
     const nameToGreet = core.getInput('who-to-greet');
