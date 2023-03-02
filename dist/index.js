@@ -9605,6 +9605,14 @@ module.exports = eval("require")("encoding");
 
 /***/ }),
 
+/***/ 5158:
+/***/ ((module) => {
+
+module.exports = eval("require")("octokit");
+
+
+/***/ }),
+
 /***/ 9491:
 /***/ ((module) => {
 
@@ -9774,21 +9782,34 @@ module.exports = JSON.parse('[[[0,44],"disallowed_STD3_valid"],[[45,46],"valid"]
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
+const { Octokit } = __nccwpck_require__(5158)
 const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
 
-try {
-  // `who-to-greet` input defined in action metadata file
-  const nameToGreet = core.getInput('who-to-greet');
-  console.log(`Hello ${nameToGreet}!`);
-  const time = (new Date()).toTimeString();
-  core.setOutput("time", time);
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
-} catch (error) {
-  core.setFailed(error.message);
+async function main() {
+    const octokit = new Octokit({
+        auth: core.getInput('token'),
+    });
+
+    const owner = "bespoken"
+    const repo = "iac"
+
+    const list = await octokit.rest.repos.listReleases({
+        owner, repo
+    })
+    
+    console.log('All', list)
+    // `who-to-greet` input defined in action metadata file
+    const nameToGreet = core.getInput('who-to-greet');
+    console.log(`Hello ${nameToGreet}!`);
+    const time = (new Date()).toTimeString();
+    core.setOutput("time", time);
+    // Get the JSON webhook payload for the event that triggered the workflow
+    const payload = JSON.stringify(github.context.payload, undefined, 2)
+    console.log(`The event payload: ${payload}`);
 }
+
+main().catch(err => core.setFailed(error.message))
 })();
 
 module.exports = __webpack_exports__;
