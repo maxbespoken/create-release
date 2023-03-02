@@ -24,4 +24,4 @@ async function main() {
     console.log(`The event payload: ${payload}`);
 }
 
-main().catch(err => core.setFailed(error.message))
+main().catch(err => core.setFailed(err.message))
