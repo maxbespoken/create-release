@@ -9605,14 +9605,6 @@ module.exports = eval("require")("encoding");
 
 /***/ }),
 
-/***/ 5158:
-/***/ ((module) => {
-
-module.exports = eval("require")("octokit");
-
-
-/***/ }),
-
 /***/ 9491:
 /***/ ((module) => {
 
@@ -9782,7 +9774,6 @@ module.exports = JSON.parse('[[[0,44],"disallowed_STD3_valid"],[[45,46],"valid"]
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-const { Octokit } = __nccwpck_require__(5158)
 const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
 
