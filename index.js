@@ -4,8 +4,8 @@ const github = require('@actions/github');
 async function main() {
     const octokit = github.getOctokit(core.getInput('token'));
 
-    const owner = "bespoken"
-    const repo = "iac"
+    const owner = "maxbespoken"
+    const repo = "create-release"
 
     const list = await octokit.rest.repos.listReleases({
         owner, repo
